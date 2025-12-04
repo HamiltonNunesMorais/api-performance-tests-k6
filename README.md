@@ -84,4 +84,15 @@ run-json-tests.bat
 | **post-delete-test.js**     | Criação + exclusão para validar consistência do fluxo                |
 | **test-json-data.js**       | Testes utilizando massa dinâmica vinda de arquivo JSON               |
        
+## Executando Testes Individualmente
 
+Além do script automatizado, **todos os testes podem ser executados separadamente** usando o comando `k6 run`.
+- Exemplo saida em HTML:
+```bash
+k6 run tests/soak-test.js
+```
+- Salvar os resultados em JSON
+```bash
+k6 run tests/stress-test.js --out json=results/stress.json
+
+```
