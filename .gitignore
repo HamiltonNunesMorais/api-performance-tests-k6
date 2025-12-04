@@ -1,0 +1,21 @@
+# Node.js leftovers
+node_modules/
+package-lock.json
+npm-debug.log*
+
+# K6 output files
+
+# VS Code settings
+.vscode/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Backup or temp files
+*~
+*.bak
+*.tmp

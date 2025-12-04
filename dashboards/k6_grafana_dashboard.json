@@ -1,0 +1,700 @@
+{
+  "dashboard": {
+    "id": null,
+    "uid": null,
+    "title": "K6 Performance Dashboard",
+    "timezone": "browser",
+    "schemaVersion": 36,
+    "version": 1,
+    "refresh": "10s",
+    "panels": [
+      {
+        "datasource": "influxdb",
+        "targets": [
+          {
+            "refId": "A",
+            "measurement": "vus",
+            "groupBy": [
+              {
+                "type": "time",
+                "params": [
+                  "$__interval"
+                ]
+              },
+              {
+                "type": "fill",
+                "params": [
+                  "null"
+                ]
+              }
+            ],
+            "orderByTime": "ASC",
+            "policy": "default",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "type": "field",
+                  "params": [
+                    "value"
+                  ]
+                },
+                {
+                  "type": "last",
+                  "params": []
+                }
+              ]
+            ],
+            "tags": []
+          }
+        ],
+        "title": "VUs Ativos",
+        "type": "timeseries",
+        "gridPos": {
+          "x": 0,
+          "y": 0,
+          "w": 8,
+          "h": 8
+        },
+        "fieldConfig": {
+          "defaults": {
+            "unit": "users",
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "overrides": []
+        }
+      },
+      {
+        "datasource": "influxdb",
+        "targets": [
+          {
+            "refId": "A",
+            "measurement": "http_reqs",
+            "groupBy": [
+              {
+                "type": "time",
+                "params": [
+                  "$__interval"
+                ]
+              },
+              {
+                "type": "fill",
+                "params": [
+                  "null"
+                ]
+              }
+            ],
+            "orderByTime": "ASC",
+            "policy": "default",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "type": "field",
+                  "params": [
+                    "value"
+                  ]
+                },
+                {
+                  "type": "sum",
+                  "params": []
+                }
+              ]
+            ],
+            "tags": []
+          }
+        ],
+        "title": "Requisi\u00e7\u00f5es por Segundo",
+        "type": "timeseries",
+        "gridPos": {
+          "x": 8,
+          "y": 0,
+          "w": 8,
+          "h": 8
+        },
+        "fieldConfig": {
+          "defaults": {
+            "unit": "reqps",
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "overrides": []
+        }
+      },
+      {
+        "datasource": "influxdb",
+        "targets": [
+          {
+            "refId": "A",
+            "measurement": "http_req_duration",
+            "groupBy": [
+              {
+                "type": "time",
+                "params": [
+                  "$__interval"
+                ]
+              },
+              {
+                "type": "fill",
+                "params": [
+                  "null"
+                ]
+              }
+            ],
+            "orderByTime": "ASC",
+            "policy": "default",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "type": "field",
+                  "params": [
+                    "value"
+                  ]
+                },
+                {
+                  "type": "mean",
+                  "params": []
+                }
+              ]
+            ],
+            "tags": []
+          }
+        ],
+        "title": "Lat\u00eancia M\u00e9dia",
+        "type": "timeseries",
+        "gridPos": {
+          "x": 0,
+          "y": 8,
+          "w": 8,
+          "h": 8
+        },
+        "fieldConfig": {
+          "defaults": {
+            "unit": "ms",
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "overrides": []
+        }
+      },
+      {
+        "datasource": "influxdb",
+        "targets": [
+          {
+            "refId": "A",
+            "measurement": "http_req_duration",
+            "groupBy": [
+              {
+                "type": "time",
+                "params": [
+                  "$__interval"
+                ]
+              },
+              {
+                "type": "fill",
+                "params": [
+                  "null"
+                ]
+              }
+            ],
+            "orderByTime": "ASC",
+            "policy": "default",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "type": "field",
+                  "params": [
+                    "value"
+                  ]
+                },
+                {
+                  "type": "percentile",
+                  "params": [
+                    95
+                  ]
+                }
+              ]
+            ],
+            "tags": []
+          }
+        ],
+        "title": "Lat\u00eancia P95",
+        "type": "timeseries",
+        "gridPos": {
+          "x": 8,
+          "y": 8,
+          "w": 8,
+          "h": 8
+        },
+        "fieldConfig": {
+          "defaults": {
+            "unit": "ms",
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "overrides": []
+        }
+      },
+      {
+        "datasource": "influxdb",
+        "targets": [
+          {
+            "refId": "A",
+            "measurement": "http_req_duration",
+            "groupBy": [
+              {
+                "type": "time",
+                "params": [
+                  "$__interval"
+                ]
+              },
+              {
+                "type": "fill",
+                "params": [
+                  "null"
+                ]
+              }
+            ],
+            "orderByTime": "ASC",
+            "policy": "default",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "type": "field",
+                  "params": [
+                    "value"
+                  ]
+                },
+                {
+                  "type": "percentile",
+                  "params": [
+                    99
+                  ]
+                }
+              ]
+            ],
+            "tags": []
+          }
+        ],
+        "title": "Lat\u00eancia P99",
+        "type": "timeseries",
+        "gridPos": {
+          "x": 16,
+          "y": 8,
+          "w": 8,
+          "h": 8
+        },
+        "fieldConfig": {
+          "defaults": {
+            "unit": "ms",
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "overrides": []
+        }
+      },
+      {
+        "datasource": "influxdb",
+        "targets": [
+          {
+            "refId": "A",
+            "measurement": "http_req_failed",
+            "groupBy": [
+              {
+                "type": "time",
+                "params": [
+                  "$__interval"
+                ]
+              },
+              {
+                "type": "fill",
+                "params": [
+                  "null"
+                ]
+              }
+            ],
+            "orderByTime": "ASC",
+            "policy": "default",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "type": "field",
+                  "params": [
+                    "value"
+                  ]
+                },
+                {
+                  "type": "mean",
+                  "params": []
+                }
+              ]
+            ],
+            "tags": []
+          }
+        ],
+        "title": "Taxa de Erro (%)",
+        "type": "timeseries",
+        "gridPos": {
+          "x": 0,
+          "y": 16,
+          "w": 8,
+          "h": 8
+        },
+        "fieldConfig": {
+          "defaults": {
+            "unit": "percent",
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "overrides": []
+        }
+      },
+      {
+        "datasource": "influxdb",
+        "targets": [
+          {
+            "refId": "A",
+            "measurement": "http_req_duration",
+            "groupBy": [
+              {
+                "type": "time",
+                "params": [
+                  "$__interval"
+                ]
+              },
+              {
+                "type": "fill",
+                "params": [
+                  "null"
+                ]
+              }
+            ],
+            "orderByTime": "ASC",
+            "policy": "default",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "type": "field",
+                  "params": [
+                    "value"
+                  ]
+                },
+                {
+                  "type": "percentile",
+                  "params": [
+                    95
+                  ]
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "test",
+                "operator": "=",
+                "value": "simple"
+              }
+            ]
+          }
+        ],
+        "title": "Lat\u00eancia P95 - simple",
+        "type": "timeseries",
+        "gridPos": {
+          "x": 0,
+          "y": 24,
+          "w": 8,
+          "h": 8
+        },
+        "fieldConfig": {
+          "defaults": {
+            "unit": "ms",
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "overrides": []
+        }
+      },
+      {
+        "datasource": "influxdb",
+        "targets": [
+          {
+            "refId": "A",
+            "measurement": "http_req_duration",
+            "groupBy": [
+              {
+                "type": "time",
+                "params": [
+                  "$__interval"
+                ]
+              },
+              {
+                "type": "fill",
+                "params": [
+                  "null"
+                ]
+              }
+            ],
+            "orderByTime": "ASC",
+            "policy": "default",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "type": "field",
+                  "params": [
+                    "value"
+                  ]
+                },
+                {
+                  "type": "percentile",
+                  "params": [
+                    95
+                  ]
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "test",
+                "operator": "=",
+                "value": "throughput"
+              }
+            ]
+          }
+        ],
+        "title": "Lat\u00eancia P95 - throughput",
+        "type": "timeseries",
+        "gridPos": {
+          "x": 6,
+          "y": 24,
+          "w": 8,
+          "h": 8
+        },
+        "fieldConfig": {
+          "defaults": {
+            "unit": "ms",
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "overrides": []
+        }
+      },
+      {
+        "datasource": "influxdb",
+        "targets": [
+          {
+            "refId": "A",
+            "measurement": "http_req_duration",
+            "groupBy": [
+              {
+                "type": "time",
+                "params": [
+                  "$__interval"
+                ]
+              },
+              {
+                "type": "fill",
+                "params": [
+                  "null"
+                ]
+              }
+            ],
+            "orderByTime": "ASC",
+            "policy": "default",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "type": "field",
+                  "params": [
+                    "value"
+                  ]
+                },
+                {
+                  "type": "percentile",
+                  "params": [
+                    95
+                  ]
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "test",
+                "operator": "=",
+                "value": "stress"
+              }
+            ]
+          }
+        ],
+        "title": "Lat\u00eancia P95 - stress",
+        "type": "timeseries",
+        "gridPos": {
+          "x": 12,
+          "y": 24,
+          "w": 8,
+          "h": 8
+        },
+        "fieldConfig": {
+          "defaults": {
+            "unit": "ms",
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "overrides": []
+        }
+      },
+      {
+        "datasource": "influxdb",
+        "targets": [
+          {
+            "refId": "A",
+            "measurement": "http_req_duration",
+            "groupBy": [
+              {
+                "type": "time",
+                "params": [
+                  "$__interval"
+                ]
+              },
+              {
+                "type": "fill",
+                "params": [
+                  "null"
+                ]
+              }
+            ],
+            "orderByTime": "ASC",
+            "policy": "default",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "type": "field",
+                  "params": [
+                    "value"
+                  ]
+                },
+                {
+                  "type": "percentile",
+                  "params": [
+                    95
+                  ]
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "test",
+                "operator": "=",
+                "value": "soak"
+              }
+            ]
+          }
+        ],
+        "title": "Lat\u00eancia P95 - soak",
+        "type": "timeseries",
+        "gridPos": {
+          "x": 18,
+          "y": 24,
+          "w": 8,
+          "h": 8
+        },
+        "fieldConfig": {
+          "defaults": {
+            "unit": "ms",
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "overrides": []
+        }
+      }
+    ]
+  },
+  "overwrite": true
+}
