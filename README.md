@@ -45,9 +45,30 @@ docker-compose up -d
 2. Acesse no browser:
 ```bash
 Grafana: http://localhost:3000
-# login e senha padrão: admin, admin
+# login e senha padrão Grafana: admin, admin
+InfluxDB: http://localhost:8086
 ```
-## Rodando TESTES e Gerando Relatórios
+3. Executando Testes com Saída para InfluxDB
+```bash
+# Teste de carga simples
+k6 run tests/simple-load-test.js --out influxdb=http://localhost:8086/k6 --tag test=simple
+
+# Teste de throughput
+k6 run tests/throughput-test.js --out influxdb=http://localhost:8086/k6 --tag test=throughput
+
+# Teste de estresse
+k6 run tests/stress-test.js --out influxdb=http://localhost:8086/k6 --tag test=stress
+
+# Teste de longa duração (soak)
+k6 run tests/soak-test.js --out influxdb=http://localhost:8086/k6 --tag test=soak
+
+```
+4. Visualizando no Grafana
+- Acesse o Grafana em http://localhost:3000
+- Importe ou crie um dashboard
+- acompanhar métricas como:VUs , Taxa de requisições por segundo, Latência média e percentis (p95, p99), Taxa de erros e falhas
+  
+## Rodando TESTES e Gerando Relatórios localmente
 ### Gerar RELATÓRIOS HTML
 
 Execute:
